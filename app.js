@@ -15,14 +15,18 @@ const pool = new Pool({
 });
 
 app.get('/', (req, res, next)=> {
-    res.send("<h1>Hey there</h1>")
+    res.send("<h1>Hey there code deploy</h1>")
 })
 
-app.get('/db', async(req, res, next) => {
-    const data = await pool.query(`SELECT * FROM buyer`)
-
-    res.json({message: "success", data: data.rows[0]});
+app.get('/status', (req, res, next)=> {
+    res.send("<h1>healthy guy</h1>")
 })
+
+// app.get('/db', async(req, res, next) => {
+//     const data = await pool.query(`SELECT * FROM buyer`)
+
+//     res.json({message: "success", data: data.rows[0]});
+// })
 
 
 app.listen(80);
